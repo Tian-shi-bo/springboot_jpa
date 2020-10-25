@@ -1,0 +1,18 @@
+logging:
+  level:
+    com.atguigu.dao: debug # 配置日志 级别： debug < info < 警告 < err
+spring:
+  datasource:  #数据源
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai #mysql 8.0 版本以后必须要serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver  #mysql 8.0 版本以后必须要
+  jpa:
+    database: mysql
+    show-sql: true  #打印 sql语句 在控制台
+    generate-ddl: true #打印数据库 结构创建语句 在控制台
+    hibernate:
+      ddl-auto: update  # update: 表不在,就创建；表在: ①类结构有变化，会更新表；②类结构没有变化，什么都不做
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy  #用来将类与表映射
+server:
+  port: 18081
